@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
-const dbConfig = require('./config');
-const environment = process.env.NODE_ENV;
+require('dotenv').config()
 
-const sequelize = new Sequelize(dbConfig[environment]);
+const connectionString = process.env.DB_STRING; // Replace with your ElephantSQL connection string
+const sequelize = new Sequelize(connectionString);
 
 const initializeDB = async () => {
   try {
